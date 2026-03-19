@@ -6,7 +6,7 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 17:37:28 by mhidani           #+#    #+#             */
-/*   Updated: 2026/03/18 18:47:38 by mhidani          ###   ########.fr       */
+/*   Updated: 2026/03/18 20:16:26 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@
 
 class Cat: virtual public Animal {
 private:
-	Brain	*brain;
+	Brain	*_brain;
 
 public:
 	Cat(void);
+	Cat(const Cat &other);
 	virtual ~Cat(void);
 
 	void	makeSound(void) const;
