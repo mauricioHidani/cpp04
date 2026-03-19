@@ -6,7 +6,7 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 17:41:13 by mhidani           #+#    #+#             */
-/*   Updated: 2026/03/18 20:24:18 by mhidani          ###   ########.fr       */
+/*   Updated: 2026/03/19 17:52:35 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,28 @@ Dog::~Dog(void) {
 
 std::string	Dog::getIdea(const size_t idx) const {
 	if (idx > 100) {
-		std::cout << "The index has surpassed 100 points" << std::endl;
+		std::cout << "Went beyond the scope of ideas" << std::endl;
 		return _brain->getIdea(100);
 	}
 	return NULL;
 }
 
+void	Dog::setIdea(const size_t idx, const std::string &idea) {
+	if (idx > 100) {
+		std::cout << "Went beyond the scope of ideas" << std::endl;
+		return ;
+	}
+	_brain->setIdea(idx, idea);
+}
+
 void	Dog::makeSound(void) const {
 	std::cout << *this << ": ruff ruff" << std::endl;
+}
+
+std::ostream	&operator<<(std::ostream &out, const Dog &obj) {
+	out << "Type: " << obj.getType() << std::endl;
+	out << "Ideas: " << std::endl;
+	for (size_t i = 0; i < 100 && obj.getIdea(i).compare("Default idea") != 0; i++)
+		out << "💡 " << obj.getIdea(i) << std::endl;
+	return out;
 }

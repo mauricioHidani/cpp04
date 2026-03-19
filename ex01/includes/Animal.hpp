@@ -6,7 +6,7 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 17:30:51 by mhidani           #+#    #+#             */
-/*   Updated: 2026/03/18 18:48:16 by mhidani          ###   ########.fr       */
+/*   Updated: 2026/03/19 15:52:58 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 #include <iostream>
 
 class Animal {
-private:
-
-
 protected:
 	std::string	_type;
 

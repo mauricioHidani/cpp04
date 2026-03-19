@@ -6,7 +6,7 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 17:35:32 by mhidani           #+#    #+#             */
-/*   Updated: 2026/03/18 20:21:14 by mhidani          ###   ########.fr       */
+/*   Updated: 2026/03/19 17:20:07 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ public:
 	virtual ~Dog(void);
 
 	std::string	getIdea(const size_t idx) const;
+	void		setIdea(const size_t idx, const std::string &idea);
 
 	void	makeSound(void) const;
 };
+
+std::ostream	&operator<<(std::ostream &out, const Dog &obj);

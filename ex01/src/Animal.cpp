@@ -6,7 +6,7 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 17:29:46 by mhidani           #+#    #+#             */
-/*   Updated: 2026/03/18 18:48:30 by mhidani          ###   ########.fr       */
+/*   Updated: 2026/03/19 17:53:16 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ Animal	&Animal::operator=(const Animal &other) {
 }
 
 std::ostream	&operator<<(std::ostream &out, const Animal &obj) {
-	out << obj.getType();
+	out << "Type: " << obj.getType();
 	return out;
 }
