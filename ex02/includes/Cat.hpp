@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/18 18:35:28 by mhidani           #+#    #+#             */
-/*   Updated: 2026/03/19 18:08:43 by mhidani          ###   ########.fr       */
+/*   Created: 2026/03/18 17:37:28 by mhidani           #+#    #+#             */
+/*   Updated: 2026/03/19 17:21:38 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
 #include "Animal.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
+#include "Brain.hpp"
+#include <iostream>
 
-int	main(void) {
-	Animal	*dog = new Dog();
-	Animal	*cat = new Cat();
+class Cat: virtual public Animal {
+private:
+	Brain	*_brain;
 
-	std::cout << *dog << std::endl;
-	std::cout << *cat << std::endl;
+public:
+	Cat(void);
+	Cat(const Cat &other);
+	virtual ~Cat(void);
 
-	delete dog;
-	delete cat;
+	std::string	getIdea(const size_t &idx) const;
+	void		setIdea(const size_t idx, const std::string &idea);
 
-	return 0;
-}
+	void		makeSound(void) const;
+};
+
+std::ostream	&operator<<(std::ostream &out, const Cat &obj);

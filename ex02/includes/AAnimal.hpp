@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/18 18:35:28 by mhidani           #+#    #+#             */
-/*   Updated: 2026/03/19 18:08:43 by mhidani          ###   ########.fr       */
+/*   Created: 2026/03/18 17:30:51 by mhidani           #+#    #+#             */
+/*   Updated: 2026/03/19 18:23:25 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
+#pragma once
 
-int	main(void) {
-	Animal	*dog = new Dog();
-	Animal	*cat = new Cat();
+#include <iostream>
 
-	std::cout << *dog << std::endl;
-	std::cout << *cat << std::endl;
+class AAnimal {
+protected:
+	std::string	_type;
 
-	delete dog;
-	delete cat;
+public:
+	AAnimal(void);
+	virtual ~AAnimal(void);
 
-	return 0;
-}
+	std::string		getType(void) const;
+
+	virtual void	makeSound(void) const = 0;
+};
