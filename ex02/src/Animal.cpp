@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: mhidani <mhidani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 17:29:46 by mhidani           #+#    #+#             */
-/*   Updated: 2026/03/19 17:53:16 by mhidani          ###   ########.fr       */
+/*   Updated: 2026/03/22 13:01:48 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,6 @@ Animal::~Animal(void) {
 
 std::string	Animal::getType(void) const {
 	return _type;
-}
-
-void	Animal::makeSound(void) const {
-	std::cout << *this << ": noise" << std::endl;
-}
-
-Animal	&Animal::operator=(const Animal &other) {
-	if (this != &other) {
-		_type = other._type;
-	}
-	return *this;
 }
 
 std::ostream	&operator<<(std::ostream &out, const Animal &obj) {

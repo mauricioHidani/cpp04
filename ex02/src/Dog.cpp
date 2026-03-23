@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: mhidani <mhidani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 17:41:13 by mhidani           #+#    #+#             */
-/*   Updated: 2026/03/19 17:52:35 by mhidani          ###   ########.fr       */
+/*   Updated: 2026/03/22 19:16:53 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,9 @@ Dog::Dog(void): Animal() {
 	std::cout << "The dog was adopted" << std::endl;
 }
 
-Dog::Dog(const Dog &other): Animal() {
+Dog::Dog(const Dog &other): Animal(other) {
 	_type = other._type;
-	for (size_t i = 0; i < 100; i++)
-		_brain->setIdea(i, other._brain->getIdea(i));
+	_brain = new Brain(*other._brain);
 }
 
 Dog::~Dog(void) {
@@ -32,11 +31,11 @@ Dog::~Dog(void) {
 }
 
 std::string	Dog::getIdea(const size_t idx) const {
-	if (idx > 100) {
+	if (idx >= 100) {
 		std::cout << "Went beyond the scope of ideas" << std::endl;
-		return _brain->getIdea(100);
+		return std::string();
 	}
-	return NULL;
+	return _brain->getIdea(idx);
 }
 
 void	Dog::setIdea(const size_t idx, const std::string &idea) {
@@ -48,7 +47,17 @@ void	Dog::setIdea(const size_t idx, const std::string &idea) {
 }
 
 void	Dog::makeSound(void) const {
-	std::cout << *this << ": ruff ruff" << std::endl;
+	std::cout << _type << ": ruff ruff" << std::endl;
+}
+
+Dog	&Dog::operator=(const Dog &other) {
+	if (this != &other) {
+		Animal::operator=(other);
+		_type = other._type;
+		delete _brain;
+		_brain = new Brain(*other._brain);
+	}
+	return *this;
 }
 
 std::ostream	&operator<<(std::ostream &out, const Dog &obj) {

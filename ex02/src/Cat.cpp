@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: mhidani <mhidani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 17:42:08 by mhidani           #+#    #+#             */
-/*   Updated: 2026/03/19 17:52:11 by mhidani          ###   ########.fr       */
+/*   Updated: 2026/03/22 19:16:40 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ Cat::Cat(void): Animal() {
 	std::cout << "The cat it's up and running" << std::endl;
 }
 
-Cat::Cat(const Cat &other): Animal() {
+Cat::Cat(const Cat &other): Animal(other) {
 	_type = other._type;
-	_brain = other._brain;
+	_brain = new Brain(*other._brain);
 }
 
 Cat::~Cat(void) {
@@ -46,7 +46,17 @@ void	Cat::setIdea(const size_t idx, const std::string &idea) {
 }
 
 void	Cat::makeSound(void) const {
-	std::cout << *this << ": meow meow" << std::endl;
+	std::cout << _type << ": meow meow" << std::endl;
+}
+
+Cat	&Cat::operator=(const Cat &other) {
+	if (this != &other) {
+		Animal::operator=(other);
+		_type = other._type;
+		delete _brain;
+		_brain = new Brain(*other._brain);
+	}
+	return *this;
 }
 
 std::ostream	&operator<<(std::ostream &out, const Cat &obj) {
