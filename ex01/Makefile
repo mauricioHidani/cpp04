@@ -6,7 +6,7 @@
 #    By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/18 18:31:21 by mhidani           #+#    #+#              #
-#    Updated: 2026/03/18 19:19:55 by mhidani          ###   ########.fr        #
+#    Updated: 2026/03/24 16:01:39 by mhidani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRCS		= $(addprefix $(SRC_DIR)/, $(FILES))
 OBJS		= $(addprefix $(OBJ_DIR)/, $(FILES:.cpp=.o))
 
 CXX			= c++
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS	= -g -Wall -Wextra -Werror -std=c++98
 CXXINCS		= -I$(INC_DIR)/
 
 MKD			= mkdir

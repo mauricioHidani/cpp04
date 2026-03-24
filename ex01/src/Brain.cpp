@@ -6,7 +6,7 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 18:50:03 by mhidani           #+#    #+#             */
-/*   Updated: 2026/03/18 19:42:48 by mhidani          ###   ########.fr       */
+/*   Updated: 2026/03/24 16:00:56 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,14 @@ Brain::Brain(void) {
 Brain::Brain(const Brain &other) {
 	for (size_t i = 0; i < 100; i++)
 		_ideas[i] = other.getIdea(i);
+}
+
+Brain	&Brain::operator=(const Brain &other) {
+	if (this != &other) {
+		for (size_t i = 0; i < 100; i++)
+			_ideas[i] = other._ideas[i];
+	}
+	return *this;
 }
 
 Brain::~Brain(void) {
@@ -43,10 +51,3 @@ std::string	Brain::getIdea(const size_t idx) const {
 	return _ideas[idx];
 }
 
-Brain	&Brain::operator=(const Brain &other) {
-	if (this != &other) {
-		for (size_t i = 0; i < 100; i++)
-			_ideas[i] = other._ideas[i];
-	}
-	return *this;
-}
