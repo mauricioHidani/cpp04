@@ -6,7 +6,7 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 17:42:08 by mhidani           #+#    #+#             */
-/*   Updated: 2026/03/24 18:50:19 by mhidani          ###   ########.fr       */
+/*   Updated: 2026/03/24 19:11:44 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,19 @@ Cat::Cat(const std::string& type): Animal(type), _brain(new Brain()) {
 	std::cout << "Builder by attribute: The cat it's up and running" << std::endl;
 }
 
-Cat::Cat(const Cat &other): Animal(other.getType()) {
-	_brain = other._brain;
+Cat::Cat(const Cat &other): Animal(other) {
+	_brain = new Brain(*other.getBrain());
 	std::cout << "Copy builder: The cat has already been copied and is working" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& other) {
 	if (this != &other) {
-		_type = other.getType();
+		Animal::operator=(other);
 
-		for (size_t i = 0; i < 100; i++)
-			setIdea(i, other.getIdea(i));
+		if (_brain)
+			delete _brain;
+
+		_brain = new Brain(*other.getBrain());
 	}
 	return *this;
 }
