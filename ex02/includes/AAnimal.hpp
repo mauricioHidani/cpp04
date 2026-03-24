@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 17:30:51 by mhidani           #+#    #+#             */
-/*   Updated: 2026/03/24 19:15:15 by mhidani          ###   ########.fr       */
+/*   Updated: 2026/03/24 19:20:47 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 #include <iostream>
 
-class Animal {
+class AAnimal {
 protected:
 	std::string	_type;
 
 	void setType(const std::string& type);
 	
 public:
-	Animal(void);
-	Animal(const std::string& type);
-	Animal(const Animal& other);
-	Animal& operator=(const Animal& other);
-	virtual ~Animal(void);
+	AAnimal(void);
+	AAnimal(const std::string& type);
+	AAnimal(const AAnimal& other);
+	AAnimal& operator=(const AAnimal& other);
+	virtual ~AAnimal(void);
 
 	std::string		getType(void) const;
 
 	virtual void	makeSound(void) const = 0;
 };
 
-std::ostream	&operator<<(std::ostream &out, const Animal &obj);
+std::ostream	&operator<<(std::ostream &out, const AAnimal &obj);

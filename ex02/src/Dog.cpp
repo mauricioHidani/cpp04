@@ -6,28 +6,28 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 17:41:13 by mhidani           #+#    #+#             */
-/*   Updated: 2026/03/24 19:02:15 by mhidani          ###   ########.fr       */
+/*   Updated: 2026/03/24 19:20:44 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(void): Animal("Dog"), _brain(new Brain()) {
+Dog::Dog(void): AAnimal("Dog"), _brain(new Brain()) {
 	std::cout << "Standard builder: The dog was adopted" << std::endl;
 }
 
-Dog::Dog(const std::string& type): Animal(type), _brain(new Brain()) {
+Dog::Dog(const std::string& type): AAnimal(type), _brain(new Brain()) {
 	std::cout << "Builder by attribute: The dog was adopted" << std::endl;
 }
 
-Dog::Dog(const Dog &other): Animal(other) {
+Dog::Dog(const Dog &other): AAnimal(other) {
 	_brain = new Brain(*other.getBrain());
 	std::cout << "Copy builder: The dog was adopted" << std::endl;
 }
 
 Dog&	Dog::operator=(const Dog& other) {
 	if (this != &other) {
-		Animal::operator=(other);
+		AAnimal::operator=(other);
 		
 		if (_brain)
 			delete _brain;

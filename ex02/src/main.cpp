@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhidani <mhidani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 19:08:32 by mhidani           #+#    #+#             */
-/*   Updated: 2026/03/22 13:08:26 by mhidani          ###   ########.fr       */
+/*   Updated: 2026/03/24 19:23:35 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
 
 int	main(void) {
-	Animal	*cat = new Cat();
-	Animal	*dog = new Dog();
+	AAnimal	*cat = new Cat();
+	AAnimal	*dog = new Dog();
 
 	std::cout << "Cat type: " << cat->getType() << std::endl;
 	cat->makeSound();

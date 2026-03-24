@@ -6,30 +6,28 @@
 /*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 17:42:08 by mhidani           #+#    #+#             */
-/*   Updated: 2026/03/24 19:11:44 by mhidani          ###   ########.fr       */
+/*   Updated: 2026/03/24 19:23:16 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
-#include "Animal.hpp"
-#include "Brain.hpp"
 
-Cat::Cat(void): Animal("Cat"), _brain(new Brain()) {
+Cat::Cat(void): AAnimal("Cat"), _brain(new Brain()) {
 	std::cout << "Standard builder: The cat it's up and running" << std::endl;
 }
 
-Cat::Cat(const std::string& type): Animal(type), _brain(new Brain()) {
+Cat::Cat(const std::string& type): AAnimal(type), _brain(new Brain()) {
 	std::cout << "Builder by attribute: The cat it's up and running" << std::endl;
 }
 
-Cat::Cat(const Cat &other): Animal(other) {
+Cat::Cat(const Cat &other): AAnimal(other) {
 	_brain = new Brain(*other.getBrain());
 	std::cout << "Copy builder: The cat has already been copied and is working" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& other) {
 	if (this != &other) {
-		Animal::operator=(other);
+		AAnimal::operator=(other);
 
 		if (_brain)
 			delete _brain;
