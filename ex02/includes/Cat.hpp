@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhidani <mhidani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 17:37:28 by mhidani           #+#    #+#             */
-/*   Updated: 2026/03/22 12:58:46 by mhidani          ###   ########.fr       */
+/*   Updated: 2026/03/24 18:40:31 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,23 @@
 #include "Brain.hpp"
 #include <iostream>
 
-class Cat: public Animal {
+class Cat: virtual public Animal {
 private:
 	Brain	*_brain;
 
+	Cat(const std::string& type);
+
 public:
 	Cat(void);
-	Cat(const Cat &other);
+	Cat(const Cat& other);
+	Cat& operator=(const Cat& other);
 	virtual ~Cat(void);
 
-	std::string	getIdea(const size_t &idx) const;
-	void		setIdea(const size_t idx, const std::string &idea);
+	Brain* getBrain(void) const;
+	std::string getIdea(const size_t& idx) const;
+	void setIdea(const size_t idx, const std::string& idea);
 
-	void		makeSound(void) const;
-
-	Cat	&operator=(const Cat &other);
+	void makeSound(void) const;
 };
 
-std::ostream	&operator<<(std::ostream &out, const Cat &obj);
+std::ostream& operator<<(std::ostream& out, const Cat& obj);

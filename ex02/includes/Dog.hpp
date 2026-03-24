@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhidani <mhidani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 17:35:32 by mhidani           #+#    #+#             */
-/*   Updated: 2026/03/22 12:57:32 by mhidani          ###   ########.fr       */
+/*   Updated: 2026/03/24 18:39:36 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,23 @@
 #include "Brain.hpp"
 #include <iostream>
 
-class Dog: public Animal {
+class Dog: virtual public Animal {
 private:
 	Brain	*_brain;
+
+	Dog(const std::string& type);
 
 public:
 	Dog(void);
 	Dog(const Dog &other);
+	Dog &operator=(const Dog& other);
 	virtual ~Dog(void);
+	
+	Brain* getBrain(void) const;
+	std::string getIdea(const size_t idx) const;
+	void setIdea(const size_t idx, const std::string &idea);
 
-	std::string	getIdea(const size_t idx) const;
-	void		setIdea(const size_t idx, const std::string &idea);
-
-	void	makeSound(void) const;
-
-	Dog	&operator=(const Dog &other);
+	void makeSound(void) const;
 };
 
-std::ostream	&operator<<(std::ostream &out, const Dog &obj);
+std::ostream &operator<<(std::ostream &out, const Dog &obj);
