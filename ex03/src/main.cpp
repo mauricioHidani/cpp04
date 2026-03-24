@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhidani <mhidani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 09:53:12 by mhidani           #+#    #+#             */
-/*   Updated: 2026/03/23 20:06:50 by mhidani          ###   ########.fr       */
+/*   Updated: 2026/03/24 15:27:18 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,11 @@ int main(void) {
 
 	me->use(0, *bob);
 	me->use(1, *bob);
-	
+
+	ICharacter* patrick = new Character("patrick");
+	*patrick = *bob;
+
+	delete patrick;
 	delete bob;
 	delete me;
 	delete src;
