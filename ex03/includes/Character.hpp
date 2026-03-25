@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhidani <mhidani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mhidani <mhidani@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 09:54:47 by mhidani           #+#    #+#             */
-/*   Updated: 2026/03/23 19:29:02 by mhidani          ###   ########.fr       */
+/*   Updated: 2026/03/25 16:50:19 by mhidani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 class Character: public ICharacter {
 private:
-	std::string			_name;
-	AMateria*			_invetory[4];
+	std::string	_name;
+	AMateria*	_invetory[4];
 
 public:
 	Character(void);
